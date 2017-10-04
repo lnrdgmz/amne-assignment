@@ -46,9 +46,8 @@ const Map = compose(
       <GoogleMap
         id="map"
         ref={props.onMapMounted}
-        defaultZoom={15}
-        defaultCenter={{ lat: 40.7474836, lng:-73.8948295 }}
-        center={props.center || { lat: 40.7474836, lng:-73.8948295 } }
+        defaultZoom={10}
+        center={props.center || { lat: 30.2674001, lng:-97.7418336 } }
       >
       {props.addresses.map(placeMarker)}
       {showAgencies ? props.agencies.map(placeMarker) : null}
