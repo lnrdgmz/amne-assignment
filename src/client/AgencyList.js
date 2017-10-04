@@ -11,7 +11,7 @@ const ListItem = (props) => (
         {props.place.name}
       </div>
       <div style={{
-        'font-size': '0.8em',
+        'fontSize': '0.8em',
       }}>
         {props.place.vicinity}
       </div>
@@ -21,7 +21,7 @@ const ListItem = (props) => (
 
 const AgencyList = (props) => {
   return (
-    <ol style={{ 'list-style-type': 'none'}}>
+    <ol style={{ 'listStyleType': 'none'}}>
       {props.agencies.map((place, idx) => <ListItem place={place} handleClick={props.handlePlaceClick} key={`ListItem${idx}`}/>)}
     </ol>
   )
