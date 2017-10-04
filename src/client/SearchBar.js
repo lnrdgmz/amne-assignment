@@ -7,7 +7,7 @@ import React from 'react';
 
 const SearchBar = compose(
   withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places",
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBeHfgfTnQ_r6xolDXFy0iecSsZU_X_jMw&libraries=geometry,drawing,places`,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `400px` }} />,
   }),
@@ -19,7 +19,6 @@ const SearchBar = compose(
         places: [],
         input: '',
         handleChange: (event) => {
-          console.log(event.target.value)
           this.setState({
             input: event.target.value,
           })
