@@ -2,16 +2,15 @@ require('dotenv').config()
 const express = require('express');
 const rp = require('request-promise-native');
 const cors = require('cors');
-const geolib = require('geolib')
+const geolib = require('geolib');
+const path = require('path');
 
 const app = express();
 const baseQueryURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${process.env.GOOGLE_KEY}`
 
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.send('Hello, world!')
-})
+app.use(express.static(path.join(__dirname, '../../public')));
 
 const port = process.env.PORT || 8000;
 
