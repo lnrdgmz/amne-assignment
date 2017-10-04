@@ -20,15 +20,9 @@ app.get('/api/getPage/:page', (req, res) => {
 })
 
 app.get('/api/findREAs', (req, res) => {
-  console.log(`baseQueryURL is ${baseQueryURL}`)
   let results = [];
   const {lat, lng} = req.query
   rp(`${baseQueryURL}&type=real_estate_agency&location=${lat},${lng}&rankby=distance`)
-    .then(html => {
-      console.log('This is the response')
-      console.log(html)
-      return html
-    })
     .then(html => res.json(JSON.parse(html)))
 })
 
