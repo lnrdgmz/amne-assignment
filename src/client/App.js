@@ -10,6 +10,13 @@ import { getLatLng, getLatitudeLongitude } from './helpers'
 
 const TIMEOUT_LENGTH = 3000;
 
+const addNewAgencies = (agencies, newAgencies) => {
+  const seen = agencies.map(place => place.id);
+  const unseenAgencies = newAgencies.filter(place => {
+    return !seen.includes(place.id)
+  })
+  return agencies.concat(unseenAgencies);
+}
 
 class App extends Component {
   constructor(props) {
@@ -39,7 +46,8 @@ class App extends Component {
     .then(obj => {
       this.setState((prevState, props) => {
         return {
-          agencies: prevState.agencies.concat(obj.results)
+          // agencies: prevState.agencies.concat(obj.results)
+          agencies: addNewAgencies(prevState.agencies, obj.results)
         }
       })
       // if last agency is less than 10 miles away, load more agencies
@@ -79,7 +87,8 @@ class App extends Component {
     .then(obj => {
       this.setState((prevState, props) => {
         return {
-          agencies: prevState.agencies.concat(obj.results)
+          // agencies: prevState.agencies.concat(obj.results)
+          agencies: addNewAgencies(prevState.agencies, obj.results)
         }
       })
       setTimeout(() => {
